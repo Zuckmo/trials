@@ -34,7 +34,7 @@ with tab2:
     def load_data(this_file):
         data = pd.read_csv(this_file)
         return data
-    def create_bar_chart(data. x_column, y_column):
+    def create_bar_chart(data, x_column, y_column):
         fig, ax = plt.subplots()
         ax.bar(data[x_column], data[y_column])
         ax.set_xlabel(x_column)
@@ -42,8 +42,8 @@ with tab2:
         st.pyplot(fig)
     uploaded_file = st.file_uploader("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
     if uploaded_file is not None:
-        data - load_data("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
-        x_colomn = st.selectbox("choose x axis", data.columns)
+        data = load_data("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
+        x_column = st.selectbox("choose x axis", data.columns)
         y_column = st.selectbox("choose y axis", data.columns)
         create_bar_chart(data, x_column, y_column)
 
@@ -103,7 +103,7 @@ with tab3:
     ax[2].set_title('Monetary Distribution')
     st.pyplot(fig)
 
-    
+
    
 
 
