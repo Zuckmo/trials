@@ -8,6 +8,8 @@ sns.set(style="dark")
 st.write(
     """
     # Proyek Analisis Data: Bike Sharing Dataset
+    ## Nama : Guruh sukmo
+    ## Cohort ID : 0209YBFI87 
     """
 )   
 
