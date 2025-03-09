@@ -2,17 +2,15 @@
 
 ## Setup Environment - VS code
 ```
-python -3.9 
-conda activate main-ds
+python3.9 -m venv nama_environment
+nama_environment/Scripts/activate
 pip install -r requirements.txt
 ```
 
 ## Setup Environment - Shell/Terminal
 ```
-mkdir proyek_analisis_data
-cd proyek_analisis_data
-pipenv install
-pipenv shell
+
+pip install pandas matplotlib seabon streamlit
 pip install -r requirements.txt
 ```
 
