@@ -40,7 +40,7 @@ with tab2:
         ax.set_xlabel(x_column)
         ax.set_ylabel(y_column)
         st.pyplot(fig)
-    uploaded_file = st.file_uploader("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
+    uploaded_file = ("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
     if uploaded_file is not None:
         data = load_data("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
         x_column = st.selectbox("choose x axis", data.columns)
