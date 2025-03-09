@@ -62,7 +62,7 @@ with tab3:
 
     st.header("Effect of weather on bike rental")
     fig,ax = plt.subplots()
-    sns.boxplot(x="weather_situation",y="total",data=day,ax=ax)
+    sns.boxplot(x="weather_situation",y="total",data=hour,ax=ax)
     ax.set_xticks(range(1,5))   
     ax.set_xticklabels(['Clear','Mist','Light Snow','Heavy Rain'])
     st.pyplot(fig)
