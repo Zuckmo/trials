@@ -5,8 +5,8 @@ import seaborn as sns
 
 # Load data dengan pengecekan error
 try:
-    day_url = "https://raw.githubusercontent.com/Zuckmo/Analisa/refs/heads/master/day_cleaned.csv"
-    hour_url = "https://raw.githubusercontent.com/Zuckmo/Analisa/refs/heads/master/hour_cleaned.csv"
+    day_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv"
+    hour_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/hour_cleaned.csv"
 
     day = pd.read_csv(day_url)
     hour = pd.read_csv(hour_url)
