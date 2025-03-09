@@ -13,7 +13,7 @@ operation = st.radio("Pilih operasi:", ("Tambah", "Kurang", "Kali", "Bagi"))
 # Tombol Hitung
 if st.button("Hitung"):
     if operation == "Tambah":
-        result = num1 + num2
+        result = num1 + num2          
     elif operation == "Kurang":
         result = num1 - num2
     elif operation == "Kali":

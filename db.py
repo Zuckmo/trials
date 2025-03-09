@@ -4,7 +4,7 @@ import seaborn as sns
 import streamlit as st
 
 sns.set(style='dark')
- 
+   
 st.write(
     
     # Proyek Analisis Data: Bike Sharing Dataset
@@ -49,7 +49,7 @@ with tab1:
         """
             )
 
-
+     
 with tab2:
     st.header("Pilihlah sumbe X dan Y") 
     def load_data(file_path):
