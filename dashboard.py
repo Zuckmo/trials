@@ -13,44 +13,18 @@ st.write(
     """
 )   
 
-tab1, tab2, tab3 = st.tabs(["dataset",  "viz option", "business answer"])
+tab1, tab2, tab3 = st.tabs(["business answer", "viz option", "dataset"])
+day_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv"
+hour_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/hour_cleaned.csv"
+
+day = pd.read_csv(day_url)
+hour=pd.read_csv(hour_url)
+
+day["dteday"] = pd.to_datetime(day["dteday"])
+hour["dteday"] = pd.to_datetime(hour["dteday"])
+
 
 with tab1:
-    day_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv"
-    hour_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/hour_cleaned.csv"
-
-    day = pd.read_csv(day_url)
-    hour=pd.read_csv(hour_url)
-
-    day["dteday"] = pd.to_datetime(day["dteday"])
-    hour["dteday"] = pd.to_datetime(hour["dteday"])
-
-    st.title("Data penyewaan sepeda")
-
-    st.dataframe(day)
-    st.dataframe(hour)  
-
-
-with tab2:
-    st.header("choose axis X and Y")
-    def load_data(this_file):
-        data = pd.read_csv(this_file)
-        return data
-    def create_bar_chart(data, x_column, y_column):
-        fig, ax = plt.subplots()
-        ax.bar(data[x_column], data[y_column])
-        ax.set_xlabel(x_column)
-        ax.set_ylabel(y_column)
-        st.pyplot(fig)
-    uploaded_file = ("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
-    if uploaded_file is not None:
-        data = load_data("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
-        x_column = st.selectbox("choose x axis", data.columns)
-        y_column = st.selectbox("choose y axis", data.columns)
-        create_bar_chart(data, x_column, y_column)
-
-
-with tab3:
     st.title("Business Answer")
 
     st.header("rental number based on the season")
@@ -104,12 +78,36 @@ with tab3:
     sns.histplot(rfm["Monetary"], bins=20, ax=ax[2], color='red')
     ax[2].set_title('Monetary Distribution')
     st.pyplot(fig)
-
-
    
 
 
+with tab2:
+    st.header("choose axis X and Y")
+    def load_data(this_file):
+        data = pd.read_csv(this_file)
+        return data
+    def create_bar_chart(data, x_column, y_column):
+        fig, ax = plt.subplots()
+        ax.bar(data[x_column], data[y_column])
+        ax.set_xlabel(x_column)
+        ax.set_ylabel(y_column)
+        st.pyplot(fig)
+    uploaded_file = ("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
+    if uploaded_file is not None:
+        data = load_data("https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv")
+        x_column = st.selectbox("choose x axis", data.columns)
+        y_column = st.selectbox("choose y axis", data.columns)
+        create_bar_chart(data, x_column, y_column)
 
 
 
-    
+with tab3:
+   
+    st.title("Data penyewaan sepeda")
+
+    st.dataframe(day)
+    st.dataframe(hour)  
+
+
+
+
