@@ -12,8 +12,12 @@ st.write(
     ## Cohort ID : 0209YBFI87 
     """
 )   
+#sidebar untuk navigasi
 
-tab1, tab2, tab3 = st.tabs(["business answer", "viz option", "dataset"])
+menu = st.sidebar.selectbox("Pilih Halaman", ["Business Answer", "Viz Option", "Dataset"])
+
+
+
 day_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/day_cleaned.csv"
 hour_url = "https://raw.githubusercontent.com/Zuckmo/trials/refs/heads/master/hour_cleaned.csv"
 
@@ -24,7 +28,7 @@ day["dteday"] = pd.to_datetime(day["dteday"])
 hour["dteday"] = pd.to_datetime(hour["dteday"])
 
 
-with tab1:
+if menu == "Business Answer":
     st.title("Business Answer")
 
     st.header("rental number based on the season")
@@ -81,8 +85,9 @@ with tab1:
    
 
 
-with tab2:
+if menu == "Viz Option":
     st.header("choose axis X and Y")
+
     def load_data(this_file):
         data = pd.read_csv(this_file)
         return data
@@ -101,7 +106,7 @@ with tab2:
 
 
 
-with tab3:
+if menu == "Dataset":
    
     st.title("Data penyewaan sepeda")
 
